@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>yes</title>
+  </head>
+  <body> it is a test <br>
+    <canvas id="mycanvas" width="400" height="300"> </canvas>
+    <script>
+      function drawapic(mypic){
+        var mycv = document.getElementById("mycanvas");  
+				var myctx = mycv.getContext("2d");
+				myctx.drawImage(mypic, 100, 100);
+      }
+      function load(){
+        var mypic = new Image();  
+        mypic.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+
+           mypic.onload = function(){
+             drawapic(mypic);
+           };
+   
+      }//load
+      
+      load();
+      
+    </script>
+    
+  </body>
+</html>
