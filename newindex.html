@@ -94,7 +94,7 @@
         var radian; //弧度  
         var i;
         var radianDecrement; //弧度增量  
-        var time = 10; //每个点之间的时间间隔  
+        var time = 1000; //每个点之间的时间间隔  
         var intervalId;
         var num = 90; //分割为 360 个点  
         var startRadian = Math.PI;
@@ -113,10 +113,11 @@
             $("#copyright").css("bottom", "10px");
             document.execCommand("stop");
         } else {
+
             setTimeout(function() {
                 adjustWordsPosition();
                 startAnimation();
-            }, 1000);
+            }, 0);
 
             $("#accept").click(function() {
                 $(this).hide();
@@ -125,7 +126,7 @@
                 timeElapse(together);
                 setInterval(function() {
                     timeElapse(together);
-                }, 500);
+                }, 5000);
             })
             adjustCodePosition();
             $("#code").typewriter();
