@@ -90,13 +90,13 @@
 
     </div>
     <script type="text/javascript">
-        var r = 16;
+        var r = 20;
         var radian; //弧度  
         var i;
         var radianDecrement; //弧度增量  
         var time = 10; //每个点之间的时间间隔  
         var intervalId;
-        var num = 360; //分割为 360 个点  
+        var num = 90; //分割为 360 个点  
         var startRadian = Math.PI;
         var ctx;
 
@@ -157,11 +157,14 @@
             var xpoint = getX(radian);
             var ypoint = getY(radian);
             var r = 5
-            ctx.moveTo(xpoint + r, ypoint)
-            ctx.arc(xpoint, ypoint, r, 0, 2 * Math.PI, false)
-                //arr.push("X:" + getX(radian) + "<br/>Y:" + getY(radian) + "<br/>");  
+
+            //ctx.moveTo(xpoint + r, ypoint)
+            //ctx.arc(xpoint, ypoint, r, 0, 2 * Math.PI, false)
+
+            drawstar(xpoint, ypoint)
             i++;
-            ctx.stroke(); //画线 
+
+            //ctx.stroke(); //画线 
 
             if (i >= num) {
                 //if (i > 4)
@@ -175,7 +178,25 @@
         }
 
         function getY(t) { //由弧度得到 Y 坐标  
-            return $("#garden").height() / 2 - r * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+            return $("#garden").height() / 2 - 55 - r * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+        }
+
+        function drawstar(x, y) {
+            var R = 10
+            var r = 4
+            ctx.beginPath();
+            //设置是个顶点的坐标，根据顶点制定路径   
+            for (var i = 0; i < 5; i++) {
+                ctx.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * R + x, -Math.sin((18 + i * 72) / 180 * Math.PI) * R + y);
+                ctx.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * r + x, -Math.sin((54 + i * 72) / 180 * Math.PI) * r + y);
+            }
+            ctx.closePath();
+            //设置边框样式以及填充颜色   
+            ctx.lineWidth = "1";
+            ctx.fillStyle = "#F6F152";
+            ctx.strokeStyle = "#F5270B";
+            ctx.fill();
+            ctx.stroke();
         }
     </script>
 </body>
