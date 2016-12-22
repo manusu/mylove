@@ -54,7 +54,7 @@
                     google_ad_slot = "0650322805";
                     google_ad_width = 320;
                     google_ad_height = 50;
-                    //-->
+                    -->
                 </script>
                 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                 </script>
@@ -64,15 +64,7 @@
                 <div id="words">
                     <div id="messages">
                         <center>
-                            <script type="text/javascript">
-                                <!--
-                                google_ad_client = "ca-pub-3712320065678109";
-                                /* lovead */
-                                google_ad_slot = "0650322805";
-                                google_ad_width = 320;
-                                google_ad_height = 50;
-                                //-->
-                            </script>
+
                             <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                             </script>
                         </center>
@@ -94,7 +86,7 @@
         var radian; //弧度  
         var i;
         var radianDecrement; //弧度增量  
-        var time = 1000; //每个点之间的时间间隔  
+        var time = 100; //每个点之间的时间间隔  
         var intervalId;
         var num = 90; //分割为 360 个点  
         var startRadian = Math.PI;
@@ -122,11 +114,11 @@
             $("#accept").click(function() {
                 $(this).hide();
                 $("#elapseClock").show();
-                var together = new Date();
+                var together = new Date(2012, 8, 17, 0);
                 timeElapse(together);
                 setInterval(function() {
                     timeElapse(together);
-                }, 5000);
+                }, 1000);
             })
             adjustCodePosition();
             $("#code").typewriter();
